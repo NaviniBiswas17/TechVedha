@@ -14,6 +14,7 @@ import FAQ from '@/components/FAQ'
 import Blog from '@/components/Blog'
 import Contact from '@/components/Contact'
 import CTA from '@/components/CTA'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 export default function Home() {
   return (
@@ -34,6 +35,7 @@ export default function Home() {
       <Blog />
       <Contact />
       <CTA />
+      <WhatsAppFloat />
     </main>
   )
 }

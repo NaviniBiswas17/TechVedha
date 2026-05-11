@@ -21,6 +21,29 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
 }
 
+@keyframes whatsappPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  70% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.75);
+    opacity: 0;
+  }
+}
+
+.whatsapp-ping {
+  animation: whatsappPulse 2.2s ease-out infinite;
+}
+
+.whatsapp-ping-delayed {
+  animation: whatsappPulse 2.2s ease-out 1.1s infinite;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

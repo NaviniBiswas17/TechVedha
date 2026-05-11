@@ -8,10 +8,10 @@ import { usePathname } from 'next/navigation'
 const navLinks = [
   { name: 'Home', href: '/', type: 'page' },
   { name: 'Services', href: '/services', type: 'page' },
-  { name: 'Pricing', href: '/#pricing', type: 'hash' },
-  { name: 'About', href: '/#about', type: 'hash' },
-  { name: 'FAQ', href: '/#faq', type: 'hash' },
-  { name: 'Contact', href: '/#contact-form', type: 'hash' },
+  { name: 'Pricing', href: '/pricing', type: 'page' },
+  { name: 'About', href: '/about', type: 'page' },
+  { name: 'FAQ', href: '/faq', type: 'page' },
+  { name: 'Contact', href: '/contact', type: 'page' },
 ]
 
 export default function Navbar() {
@@ -83,7 +83,7 @@ export default function Navbar() {
           </ul>
 
           {/* CTA Button */}
-          <Link href="/#contact-form">
+          <Link href="/contact">
             <motion.span
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -142,7 +142,7 @@ export default function Navbar() {
               })}
               <li className="pt-2">
                 <Link
-                  href="/#contact-form"
+                  href="/contact"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block py-2.5 text-center text-sm font-semibold rounded-lg ${
                     scrolled 

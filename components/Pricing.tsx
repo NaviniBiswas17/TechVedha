@@ -124,7 +124,7 @@ export default function Pricing() {
               </ul>
 
               <a
-                href="#contact"
+                href="/#contact-form"
                 className={`block text-center font-semibold py-3 rounded-lg transition-all duration-200 ${
                   plan.popular
                     ? 'bg-white text-green-600 hover:bg-gray-100'
