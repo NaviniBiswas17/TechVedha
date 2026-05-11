@@ -2,19 +2,27 @@
 import { motion } from 'framer-motion'
 import { Shield, Menu, X } from 'lucide-react'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const navLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'Services', href: '#all-services' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'About', href: '#about' },
-  { name: 'FAQ', href: '#faq' },
-  { name: 'Contact', href: '#contact-form' },
+  { name: 'Home', href: '/', type: 'page' },
+  { name: 'Services', href: '/services', type: 'page' },
+  { name: 'Pricing', href: '/#pricing', type: 'hash' },
+  { name: 'About', href: '/#about', type: 'hash' },
+  { name: 'FAQ', href: '/#faq', type: 'hash' },
+  { name: 'Contact', href: '/#contact-form', type: 'hash' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isLinkActive = (href: string, type: string) => {
+    if (type !== 'page') return false
+    return pathname === href
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,50 +48,54 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
               <Shield className="w-5 h-5 text-white" />
             </div>
             <span className={`font-bold text-lg transition-colors duration-300 ${
               scrolled ? 'text-gray-900' : 'text-white'
             }`}>InnovaIT</span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
-            {navLinks.map((link, i) => (
-              <li key={link.name}>
-                <a
-                  href={link.href}
-                  className={`text-sm font-medium transition-colors duration-300 ${
-                    scrolled 
-                      ? i === 0
-                        ? 'text-gray-900 border-b-2 border-green-500 pb-1'
-                        : 'text-gray-600 hover:text-gray-900'
-                      : i === 0
-                        ? 'text-white border-b-2 border-green-400 pb-1'
-                        : 'text-white/80 hover:text-white'
-                  }`}
-                >
-                  {link.name}
-                </a>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = isLinkActive(link.href, link.type)
+              return (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className={`text-sm font-medium transition-colors duration-300 ${
+                      scrolled 
+                        ? isActive
+                          ? 'text-gray-900 border-b-2 border-green-500 pb-1'
+                          : 'text-gray-600 hover:text-gray-900'
+                        : isActive
+                          ? 'text-white border-b-2 border-green-400 pb-1'
+                          : 'text-white/80 hover:text-white'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
 
           {/* CTA Button */}
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.97 }}
-            className={`hidden sm:flex text-sm font-semibold px-4 md:px-6 py-2 md:py-2.5 rounded-lg transition-all duration-300 ${
-              scrolled 
-                ? 'bg-green-500 text-white hover:bg-green-600 shadow-sm' 
-                : 'bg-white text-gray-900 hover:bg-green-50'
-            }`}
-          >
-            Contact Us
-          </motion.a>
+          <Link href="/#contact-form">
+            <motion.span
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              className={`hidden sm:flex text-sm font-semibold px-4 md:px-6 py-2 md:py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
+                scrolled 
+                  ? 'bg-green-500 text-white hover:bg-green-600 shadow-sm' 
+                  : 'bg-white text-gray-900 hover:bg-green-50'
+              }`}
+            >
+              Contact Us
+            </motion.span>
+          </Link>
 
           {/* Mobile Menu Button */}
           <button
@@ -105,25 +117,32 @@ export default function Navbar() {
               scrolled ? 'bg-white border-gray-100' : 'bg-black/50 backdrop-blur-md border-white/10'
             }`}
           >
-            <ul className="flex flex-col gap-2 px-4">
-              {navLinks.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`block py-2 text-sm font-medium transition-colors duration-300 ${
-                      scrolled 
-                        ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
-                    } rounded-lg px-2`}
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
+              <ul className="flex flex-col gap-2 px-4">
+              {navLinks.map((link) => {
+                const isActive = isLinkActive(link.href, link.type)
+                return (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className={`block py-2 text-sm font-medium transition-colors duration-300 ${
+                        scrolled 
+                          ? isActive
+                            ? 'text-green-600 bg-gray-50' 
+                            : 'text-gray-700 hover:text-gray-900 hover:bg-gray-50' 
+                          : isActive
+                            ? 'text-green-400 bg-white/10'
+                            : 'text-white/90 hover:text-white hover:bg-white/10'
+                      } rounded-lg px-2`}
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                )
+              })}
               <li className="pt-2">
-                <a
-                  href="#contact"
+                <Link
+                  href="/#contact-form"
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block py-2.5 text-center text-sm font-semibold rounded-lg ${
                     scrolled 
@@ -132,7 +151,7 @@ export default function Navbar() {
                   }`}
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
             </ul>
           </motion.div>

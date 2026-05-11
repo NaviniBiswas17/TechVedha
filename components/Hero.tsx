@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Shield, Clock, Users, CheckCircle, ChevronDown, Volume2, VolumeX } from 'lucide-react'
+import { ArrowRight, Play, TrendingUp, Shield, Clock, CheckCircle, ChevronDown, Volume2, VolumeX } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 
 const trustLogos = [

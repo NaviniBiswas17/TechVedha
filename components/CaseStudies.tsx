@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, TrendingUp, Clock, DollarSign } from 'lucide-react'
+import { ArrowUpRight, TrendingUp, Clock, DollarSign, Shield } from 'lucide-react'
 
 const caseStudies = [
   {
@@ -47,8 +47,6 @@ const caseStudies = [
   },
 ]
 
-import { Shield } from 'lucide-react'
-
 export default function CaseStudies() {
   return (
     <section className="w-full bg-gray-50 py-10 md:py-14 lg:py-16">
@@ -68,7 +66,7 @@ export default function CaseStudies() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+        <div className="mx-auto flex max-w-5xl flex-col gap-4">
           {caseStudies.map((study, i) => (
             <motion.div
               key={study.client}
@@ -76,51 +74,59 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group"
+              className="group overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
             >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={study.image}
-                  alt={study.client}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-                <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-green-400 text-xs font-semibold uppercase tracking-wider">{study.industry}</span>
-                  <h3 className="text-white font-bold text-xl">{study.client}</h3>
-                </div>
-              </div>
-
-              <div className="p-4 md:p-5">
-                <div className="mb-4">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Challenge</p>
-                  <p className="text-gray-700 text-sm">{study.challenge}</p>
+              <div className="grid grid-cols-1 md:grid-cols-[220px_minmax(0,1fr)]">
+                <div className="relative h-44 overflow-hidden md:h-full md:min-h-[220px]">
+                  <img
+                    src={study.image}
+                    alt={study.client}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute bottom-3 left-3 right-3">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-green-400">{study.industry}</span>
+                    <h3 className="text-lg font-bold text-white">{study.client}</h3>
+                  </div>
                 </div>
 
-                <div className="mb-4">
-                  <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Solution</p>
-                  <p className="text-gray-700 text-sm">{study.solution}</p>
-                </div>
+                <div className="flex h-full flex-col p-4 md:p-5">
+                  <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_240px] lg:items-start lg:gap-5">
+                    <div>
+                      <div className="mb-3">
+                        <p className="mb-1 text-xs uppercase tracking-wider text-gray-500">Challenge</p>
+                        <p className="text-sm text-gray-700">{study.challenge}</p>
+                      </div>
 
-                <div className="grid grid-cols-3 gap-2 mb-4">
-                  {study.results.map((result) => (
-                    <div key={result.label} className="text-center p-2 bg-gray-50 rounded-lg">
-                      <result.icon className="w-4 h-4 text-green-500 mx-auto mb-1" />
-                      <p className="text-lg font-bold text-gray-900">{result.value}</p>
-                      <p className="text-xs text-gray-500">{result.label}</p>
+                      <div className="mb-3">
+                        <p className="mb-1 text-xs uppercase tracking-wider text-gray-500">Solution</p>
+                        <p className="text-sm text-gray-700">{study.solution}</p>
+                      </div>
+
+                      <div className="border-t border-gray-100 pt-3">
+                        <p className="mb-2 line-clamp-2 text-sm italic text-gray-600">&ldquo;{study.quote}&rdquo;</p>
+                        <p className="text-xs text-gray-500">{study.author}</p>
+                      </div>
                     </div>
-                  ))}
-                </div>
 
-                <div className="border-t border-gray-100 pt-4">
-                  <p className="text-gray-600 text-sm italic mb-2">&ldquo;{study.quote}&rdquo;</p>
-                  <p className="text-xs text-gray-500">{study.author}</p>
-                </div>
+                    <div className="flex flex-col gap-3">
+                      <div className="grid grid-cols-3 gap-2">
+                        {study.results.map((result) => (
+                          <div key={result.label} className="rounded-xl bg-gray-50 px-2 py-3 text-center">
+                            <result.icon className="mx-auto mb-1 h-4 w-4 text-green-500" />
+                            <p className="text-base font-bold leading-tight text-gray-900">{result.value}</p>
+                            <p className="mt-1 text-[11px] leading-tight text-gray-500">{result.label}</p>
+                          </div>
+                        ))}
+                      </div>
 
-                <button className="mt-4 w-full flex items-center justify-center gap-2 text-green-500 font-semibold text-sm hover:text-green-600 transition-colors">
-                  Read Full Case Study
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+                      <button className="flex w-full items-center justify-center gap-2 rounded-xl border border-green-100 bg-green-50 px-4 py-2.5 text-sm font-semibold text-green-600 transition-colors hover:border-green-200 hover:bg-green-100">
+                        Read Full Case Study
+                        <ArrowUpRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
