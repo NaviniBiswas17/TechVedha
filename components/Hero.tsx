@@ -18,14 +18,45 @@ const floatingStats = [
 
 export default function Hero() {
   const [isMuted, setIsMuted] = useState(true)
-  const [isMobile, setIsMobile] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768)
-    checkMobile()
-    window.addEventListener('resize', checkMobile)
-    return () => window.removeEventListener('resize', checkMobile)
+    const video = videoRef.current
+    if (!video) return
+
+    video.muted = true
+    video.playsInline = true
+
+    const attemptPlay = async () => {
+      try {
+        await video.play()
+      } catch {
+        // Some mobile browsers may delay autoplay until the media is ready.
+      }
+    }
+
+    const handleCanPlay = () => {
+      attemptPlay()
+    }
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        attemptPlay()
+      }
+    }
+
+    video.load()
+    attemptPlay()
+
+    video.addEventListener('loadedmetadata', handleCanPlay)
+    video.addEventListener('canplay', handleCanPlay)
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    return () => {
+      video.removeEventListener('loadedmetadata', handleCanPlay)
+      video.removeEventListener('canplay', handleCanPlay)
+      document.removeEventListener('visibilitychange', handleVisibilityChange)
+    }
   }, [])
 
   const toggleMute = () => {
@@ -39,52 +70,39 @@ export default function Hero() {
     <section id="home" className="relative w-full min-h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        {/* Video for desktop/tablet */}
-        {!isMobile && (
-          <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-            poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
-          >
-            <source src="/0_Video_Call_Conference_1920x1080 (1).mp4" type="video/mp4" />
-          </video>
-        )}
-        
-        {/* Fallback image for mobile */}
-        {isMobile && (
-          <img
-            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80"
-            alt="Team collaboration"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          poster="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80"
+          className="absolute inset-0 h-full w-full object-cover object-center md:object-center"
+        >
+          <source src="/0_Video_Call_Conference_1920x1080 (1).mp4" type="video/mp4" />
+        </video>
         
         {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/45 md:from-black/80 md:via-black/60 md:to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
       </div>
 
       {/* Video Controls - Mute/Unmute */}
-      {!isMobile && (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          onClick={toggleMute}
-          className="absolute bottom-24 right-6 z-50 p-3 bg-white/10 backdrop-blur-md rounded-full border border-white/20 hover:bg-white/20 transition-all duration-300 group"
-          aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-        >
-          {isMuted ? (
-            <VolumeX className="w-5 h-5 text-white" />
-          ) : (
-            <Volume2 className="w-5 h-5 text-white" />
-          )}
-        </motion.button>
-      )}
+      <motion.button
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        onClick={toggleMute}
+        className="absolute bottom-20 right-4 z-50 rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-md transition-all duration-300 group hover:bg-white/20 md:bottom-24 md:right-6"
+        aria-label={isMuted ? 'Unmute video' : 'Mute video'}
+      >
+        {isMuted ? (
+          <VolumeX className="w-5 h-5 text-white" />
+        ) : (
+          <Volume2 className="w-5 h-5 text-white" />
+        )}
+      </motion.button>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 lg:pt-28 pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">

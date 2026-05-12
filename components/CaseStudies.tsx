@@ -9,7 +9,7 @@ const caseStudies = [
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
     challenge: 'Legacy systems causing 12-hour downtime monthly',
     solution: 'Cloud migration & infrastructure modernization',
-    results: [
+    results: [ 
       { icon: TrendingUp, value: '99.99%', label: 'Uptime Achieved' },
       { icon: Clock, value: '75%', label: 'Faster Processing' },
       { icon: DollarSign, value: '$2M', label: 'Annual Savings' },
