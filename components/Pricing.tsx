@@ -5,7 +5,8 @@ import { Check, Sparkles } from 'lucide-react'
 const plans = [
   {
     name: 'Starter',
-    price: '999',
+    price: '24,999',
+    currency: '₹',
     period: '/month',
     description: 'Perfect for small businesses getting started',
     features: [
@@ -20,7 +21,8 @@ const plans = [
   },
   {
     name: 'Business',
-    price: '2,499',
+    price: '59,999',
+    currency: '₹',
     period: '/month',
     description: 'Ideal for growing companies',
     features: [
@@ -38,6 +40,7 @@ const plans = [
   {
     name: 'Enterprise',
     price: 'Custom',
+    currency: '',
     period: '',
     description: 'For large organizations with complex needs',
     features: [
@@ -109,7 +112,7 @@ export default function Pricing() {
 
               <div className="mb-6">
                 <span className={`text-4xl lg:text-5xl font-bold ${plan.popular ? 'text-white' : 'text-gray-900'}`}>
-                  ${plan.price}
+                  {plan.currency}{plan.price}
                 </span>
                 <span className={plan.popular ? 'text-green-100' : 'text-gray-500'}>{plan.period}</span>
               </div>

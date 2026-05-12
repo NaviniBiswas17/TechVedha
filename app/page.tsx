@@ -1,6 +1,5 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import Partners from '@/components/Partners'
 import Features from '@/components/Features'
 import Industries from '@/components/Industries'
 import Services from '@/components/Services'
@@ -21,7 +20,6 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
-      <Partners />
       <Features />
       <Industries />
       <Services />

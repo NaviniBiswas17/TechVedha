@@ -77,11 +77,6 @@ export default function Process() {
 
               {/* Card */}
               <div className="relative bg-white border-2 border-gray-100 rounded-xl md:rounded-2xl p-4 md:p-5 hover:border-green-200 hover:shadow-lg transition-all duration-300 z-10">
-                {/* Step Number */}
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center font-bold text-sm shadow-lg">
-                  {i + 1}
-                </div>
-
                 <div className={`w-14 h-14 rounded-xl ${step.bgColor} flex items-center justify-center mb-4`}>
                   <step.icon className={`w-7 h-7 ${step.color}`} />
                 </div>

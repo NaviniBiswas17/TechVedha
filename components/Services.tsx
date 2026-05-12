@@ -1,6 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Cloud, Shield, Code, Server, Database, Smartphone } from 'lucide-react'
+import { Cloud, Shield, Code, Server, Database, Smartphone, Cpu, Globe } from 'lucide-react'
 
 const services = [
   {
@@ -44,6 +44,20 @@ const services = [
     description: 'Strategic consulting and implementation to modernize your business processes and technologies.',
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&q=80',
     features: ['Strategy Consulting', 'Process Automation', 'Tech Integration', 'Training'],
+  },
+  {
+    icon: Cpu,
+    title: 'DevOps & Automation',
+    description: 'Faster releases and smoother operations through CI/CD pipelines, monitoring, and workflow automation.',
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80',
+    features: ['CI/CD Setup', 'Infrastructure as Code', 'Monitoring', 'Release Automation'],
+  },
+  {
+    icon: Globe,
+    title: 'Web Solutions',
+    description: 'Modern websites and business platforms built for speed, performance, and customer engagement.',
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80',
+    features: ['Responsive Design', 'SEO Ready', 'Performance Tuning', 'CMS Integration'],
   },
 ]
 

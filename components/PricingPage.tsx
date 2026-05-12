@@ -117,7 +117,7 @@ export default function PricingPage() {
                       </div>
                     </div>
                     <div className="mt-5 flex items-end gap-2">
-                      <span className="text-5xl font-bold text-white">$2,499</span>
+                      <span className="text-5xl font-bold text-white">₹59,999</span>
                       <span className="pb-2 text-white/60">/month</span>
                     </div>
                     <p className="mt-3 text-sm leading-relaxed text-white/70">

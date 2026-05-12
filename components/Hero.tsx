@@ -3,13 +3,6 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Play, TrendingUp, Shield, Clock, CheckCircle, ChevronDown, Volume2, VolumeX } from 'lucide-react'
 import { useState, useRef, useEffect } from 'react'
 
-const trustLogos = [
-  { name: 'Google', width: 80 },
-  { name: 'Microsoft', width: 100 },
-  { name: 'Amazon', width: 80 },
-  { name: 'Meta', width: 70 },
-]
-
 const floatingStats = [
   { icon: TrendingUp, value: '99.9%', label: 'Uptime', subtext: 'Guaranteed', color: 'bg-green-500' },
   { icon: Shield, value: '500+', label: 'Clients', subtext: 'Worldwide', color: 'bg-blue-500' },
@@ -291,23 +284,6 @@ export default function Hero() {
             </div>
           </motion.div>
         </div>
-
-        {/* Trust Logos Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.2, duration: 0.6 }}
-          className="mt-16 md:mt-20 pt-8 border-t border-white/20"
-        >
-          <p className="text-center text-sm text-white/60 mb-6">Trusted by industry leaders</p>
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12 opacity-60">
-            {trustLogos.map((logo) => (
-              <span key={logo.name} className="text-lg md:text-xl font-bold text-white/50 hover:text-white/80 transition-colors">
-                {logo.name}
-              </span>
-            ))}
-          </div>
-        </motion.div>
 
         {/* Scroll Indicator */}
         <motion.div
