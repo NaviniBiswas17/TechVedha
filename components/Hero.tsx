@@ -1,7 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, TrendingUp, Shield, Clock, CheckCircle, ChevronDown, Volume2, VolumeX } from 'lucide-react'
-import { useState, useRef, useEffect } from 'react'
+import { ArrowRight, Play, TrendingUp, Shield, Clock, CheckCircle, ChevronDown } from 'lucide-react'
+import { useRef, useEffect } from 'react'
 
 const floatingStats = [
   { icon: TrendingUp, value: '99.9%', label: 'Uptime', subtext: 'Guaranteed', color: 'bg-green-500' },
@@ -10,7 +10,6 @@ const floatingStats = [
 ]
 
 export default function Hero() {
-  const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -52,13 +51,6 @@ export default function Hero() {
     }
   }, [])
 
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
-    }
-  }
-
   return (
     <section id="home" className="relative w-full min-h-screen overflow-hidden">
       {/* Video Background */}
@@ -80,22 +72,6 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/65 to-black/45 md:from-black/80 md:via-black/60 md:to-black/40" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/70" />
       </div>
-
-      {/* Video Controls - Mute/Unmute */}
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2 }}
-        onClick={toggleMute}
-        className="absolute bottom-20 right-4 z-50 rounded-full border border-white/20 bg-white/10 p-3 backdrop-blur-md transition-all duration-300 group hover:bg-white/20 md:bottom-24 md:right-6"
-        aria-label={isMuted ? 'Unmute video' : 'Mute video'}
-      >
-        {isMuted ? (
-          <VolumeX className="w-5 h-5 text-white" />
-        ) : (
-          <Volume2 className="w-5 h-5 text-white" />
-        )}
-      </motion.button>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-24 lg:pt-28 pb-16 md:pb-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
