@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
-import Footer from '@/components/Footer'
+import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
   title: 'IT Solutions Landing Page',
@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <Footer />
+        <SiteFooter />
       </body>
     </html>
   )

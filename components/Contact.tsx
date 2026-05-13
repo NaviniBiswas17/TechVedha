@@ -1,8 +1,42 @@
 'use client'
 import { motion } from 'framer-motion'
 import { MapPin, Phone, Mail, Clock, Send } from 'lucide-react'
+import { FormEvent, useState } from 'react'
+import { saveContactSubmission } from '@/lib/useLocalAdminData'
+
+const initialForm = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  company: '',
+  service: '',
+  message: '',
+}
 
 export default function Contact() {
+  const [form, setForm] = useState(initialForm)
+  const [submitted, setSubmitted] = useState(false)
+
+  const updateField = (field: keyof typeof initialForm, value: string) => {
+    setForm((current) => ({ ...current, [field]: value }))
+    if (submitted) setSubmitted(false)
+  }
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault()
+
+    saveContactSubmission({
+      id: `submission-${Date.now()}`,
+      ...form,
+      service: form.service || 'General Enquiry',
+      status: 'new',
+      createdAt: new Date().toISOString(),
+    })
+
+    setForm(initialForm)
+    setSubmitted(true)
+  }
+
   return (
     <section id="contact-form" className="w-full bg-white py-10 md:py-14 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -71,12 +105,15 @@ export default function Contact() {
             viewport={{ once: true }}
             className="bg-gray-50 rounded-xl md:rounded-2xl p-5 md:p-6 lg:p-8"
           >
-            <form className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
                   <input
                     type="text"
+                    required
+                    value={form.firstName}
+                    onChange={(event) => updateField('firstName', event.target.value)}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
                     placeholder="John"
                   />
@@ -85,6 +122,9 @@ export default function Contact() {
                   <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
                   <input
                     type="text"
+                    required
+                    value={form.lastName}
+                    onChange={(event) => updateField('lastName', event.target.value)}
                     className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
                     placeholder="Doe"
                   />
@@ -95,6 +135,9 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
                 <input
                   type="email"
+                  required
+                  value={form.email}
+                  onChange={(event) => updateField('email', event.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
                   placeholder="john@company.com"
                 />
@@ -104,6 +147,8 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Company</label>
                 <input
                   type="text"
+                  value={form.company}
+                  onChange={(event) => updateField('company', event.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all"
                   placeholder="Your Company"
                 />
@@ -111,8 +156,12 @@ export default function Contact() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Service Interest</label>
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white">
-                  <option>Select a service...</option>
+                <select
+                  value={form.service}
+                  onChange={(event) => updateField('service', event.target.value)}
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all bg-white"
+                >
+                  <option value="">Select a service...</option>
                   <option>Cloud Solutions</option>
                   <option>Cybersecurity</option>
                   <option>Custom Development</option>
@@ -126,10 +175,19 @@ export default function Contact() {
                 <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
                 <textarea
                   rows={4}
+                  required
+                  value={form.message}
+                  onChange={(event) => updateField('message', event.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-green-500 focus:ring-2 focus:ring-green-200 outline-none transition-all resize-none"
                   placeholder="Tell us about your project..."
                 />
               </div>
+
+              {submitted && (
+                <div className="rounded-lg border border-green-100 bg-green-50 px-4 py-3 text-sm font-medium text-green-700">
+                  Thanks. Your message was saved and is visible in the admin panel.
+                </div>
+              )}
 
               <button
                 type="submit"
