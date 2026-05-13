@@ -12,6 +12,7 @@ const navLinks = [
   { name: 'About', href: '/about', type: 'page' },
   { name: 'FAQ', href: '/faq', type: 'page' },
   { name: 'Contact', href: '/contact', type: 'page' },
+  { name: 'Admin', href: '/admin/login', type: 'page' },
 ]
 
 export default function Navbar() {
@@ -82,30 +83,32 @@ export default function Navbar() {
             })}
           </ul>
 
-          {/* CTA Button */}
-          <Link href="/contact">
-            <motion.span
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              className={`hidden sm:flex text-sm font-semibold px-4 md:px-6 py-2 md:py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
-                scrolled 
-                  ? 'bg-green-500 text-white hover:bg-green-600 shadow-sm' 
-                  : 'bg-white text-gray-900 hover:bg-green-50'
+          <div className="ml-auto flex items-center justify-end gap-2 sm:gap-3">
+            {/* CTA Button */}
+            <Link href="/contact">
+              <motion.span
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+                className={`hidden sm:flex text-sm font-semibold px-4 md:px-5 py-2 md:py-2.5 rounded-lg transition-all duration-300 cursor-pointer ${
+                  scrolled 
+                    ? 'bg-green-500 text-white hover:bg-green-600 shadow-sm' 
+                    : 'bg-white text-gray-900 hover:bg-green-50'
+                }`}
+              >
+                Contact Us
+              </motion.span>
+            </Link>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
+                scrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
               }`}
             >
-              Contact Us
-            </motion.span>
-          </Link>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors duration-300 ${
-              scrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/10'
-            }`}
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
