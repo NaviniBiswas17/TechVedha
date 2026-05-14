@@ -13,12 +13,13 @@ export default function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Contact Us</span>
+            <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Let's Connect</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3 mb-3 md:mb-4">
-              Let&apos;s Start Your IT Transformation
+              Ready for Reliable, Secure IT Leadership?
             </h2>
             <p className="text-gray-600 mb-8 leading-relaxed">
-              Ready to modernize your infrastructure? Fill out the form and our team will get back to you within 24 hours.
+              Our dedicated team provides rapid response, strategic guidance, and proven solutions tailored to your business goals. 
+              Get a personalized assessment within 24 hours of reaching out.
             </p>
 
             <div className="space-y-6">

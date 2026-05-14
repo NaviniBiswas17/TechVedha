@@ -61,12 +61,12 @@ export default function Certifications() {
 
         {/* Certifications */}
         <div className="text-center mb-7 md:mb-8">
-          <span className="text-green-400 font-semibold text-sm uppercase tracking-wider">Trust & Compliance</span>
+          <span className="text-green-400 font-semibold text-sm uppercase tracking-wider">Trusted Standards & Credentials</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mt-2 md:mt-3">
-            Certified & Accredited
+            Certified Excellence Backed by Industry Leaders
           </h2>
           <p className="text-gray-400 mt-3 max-w-xl mx-auto text-sm sm:text-base">
-            Trusted standards that back every solution we deliver.
+            Our partner-level certifications and compliance credentials ensure your business receives only enterprise-grade security and proven reliability.
           </p>
         </div>
 

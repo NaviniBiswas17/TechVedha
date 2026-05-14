@@ -47,12 +47,12 @@ export default function Testimonials() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Testimonials</span>
+          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Client Success Stories</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            What Our Clients Say
+            Proven Results from 500+ Trusted Partners
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Trusted by 500+ businesses worldwide for their IT needs
+            See how leading companies achieved cost savings averaging 35-40%, improved security, and eliminated downtime with our solutions
           </p>
         </motion.div>
 

@@ -51,12 +51,12 @@ export default function Industries() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Industries</span>
+          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Deep Expertise</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Solutions for Every Industry
+            Industry-Specific Solutions That Understand Your Challenges
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            We bring specialized expertise across diverse sectors, tailoring solutions to meet unique industry challenges.
+            With 15+ years serving multiple sectors, we deliver specialized solutions that meet strict compliance requirements and industry best practices
           </p>
         </motion.div>
 

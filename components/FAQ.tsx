@@ -42,12 +42,12 @@ export default function FAQ() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">FAQ</span>
+          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Your Questions Answered</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Frequently Asked Questions
+            Common Questions About Our IT Solutions
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Get answers to common questions about our IT services and solutions.
+            Get clear answers from our expert team about implementation, support, compliance, and how we deliver measurable business value
           </p>
         </motion.div>
 

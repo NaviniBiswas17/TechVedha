@@ -101,13 +101,13 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.6 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight"
               >
-                Transform Your
+                Enterprise IT Solutions
                 <br />
                 <span className="relative inline-block">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-500">
-                    Business
+                    That Drive Results
                   </span>
                   <motion.svg
                     initial={{ pathLength: 0 }}
@@ -137,9 +137,9 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="text-xl sm:text-2xl text-white/80 font-light"
+                className="text-lg sm:text-xl text-white/80 font-light"
               >
-                with Enterprise IT Solutions
+                Trusted by 500+ Businesses Worldwide
               </motion.p>
             </div>
 
@@ -148,11 +148,11 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.6 }}
-              className="text-white/70 text-base sm:text-lg leading-relaxed max-w-xl"
+              className="text-white/70 text-sm sm:text-base leading-relaxed max-w-xl"
             >
-              Stop wasting money on outdated systems. 500+ businesses trust us to slash downtime, 
-              secure their data, and scale without headaches. Your competitors are already ahead — 
-              <span className="text-green-400 font-semibold"> let&apos;s close that gap today.</span>
+              Eliminate downtime, strengthen security, and accelerate growth with proven IT solutions. 
+              Our 15+ years of experience and 99.9% uptime guarantee keep your business ahead. 
+              <span className="text-green-400 font-semibold"> Get a free consultation today.</span>
             </motion.p>
 
             {/* CTA Buttons - High Converting */}
@@ -166,7 +166,7 @@ export default function Hero() {
                 href="#contact-form"
                 whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -15px rgba(34, 197, 94, 0.4)" }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-green-500/30 transition-all duration-300 text-lg"
+                className="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-green-600 text-white font-bold px-6 py-3 sm:px-8 sm:py-4 rounded-xl shadow-lg shadow-green-500/30 transition-all duration-300 text-sm sm:text-base"
               >
                 Start Saving Money Now
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -175,7 +175,7 @@ export default function Hero() {
                 href="#all-services"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-8 py-4 rounded-xl border-2 border-white/30 hover:border-green-400 hover:bg-white/20 shadow-sm transition-all duration-300"
+                className="group inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm text-white font-semibold px-6 py-3 sm:px-8 sm:py-4 rounded-xl border-2 border-white/30 hover:border-green-400 hover:bg-white/20 shadow-sm transition-all duration-300 text-sm sm:text-base"
               >
                 <Play className="w-4 h-4 fill-current" />
                 See How It Works

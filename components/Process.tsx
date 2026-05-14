@@ -49,13 +49,13 @@ export default function Process() {
           className="text-center mb-8 md:mb-10"
         >
           <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">
-            How We Work
+            Our Proven Methodology
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Our Process
+            Strategic Partnership From Start to Finish
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Strategic technology, reliable support and measurable results — all in one place
+            A collaborative, results-driven approach ensuring your IT infrastructure delivers competitive advantage and sustainable growth
           </p>
         </motion.div>
 

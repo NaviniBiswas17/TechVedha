@@ -43,12 +43,12 @@ export default function Blog() {
           className="flex flex-col md:flex-row md:items-end md:justify-between mb-8 md:mb-10"
         >
           <div>
-            <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Insights</span>
+            <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Industry Expertise</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-              Latest from Our Blog
+              Expert Insights to Drive Your IT Strategy
             </h2>
             <p className="text-gray-600 mt-4 max-w-xl">
-              Stay updated with the latest trends, insights, and best practices in IT and technology.
+              Discover proven strategies, emerging trends, and actionable best practices from industry experts committed to your business success.
             </p>
           </div>
           <a

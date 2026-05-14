@@ -45,13 +45,13 @@ export default function Features() {
           className="text-center mb-8 md:mb-10"
         >
           <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">
-            Why Choose Us
+            Why Industry Leaders Trust Us
           </span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Technology That Works For You
+            The Competitive Advantages That Matter
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            We combine innovation and expertise to deliver IT services that solve today&apos;s challenges
+            Built on proven expertise, security-first practices, and a commitment to your operational excellence and business growth
           </p>
         </motion.div>
 

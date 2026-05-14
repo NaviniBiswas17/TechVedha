@@ -43,12 +43,12 @@ export default function Team() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Our Team</span>
+          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Leadership Team</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Meet the Experts Behind InnovaIT
+            Enterprise Expertise You Can Trust
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Our leadership team brings decades of combined experience in enterprise IT, cybersecurity, and cloud solutions.
+            Our certified executives and specialists bring proven experience from Fortune 500 companies, ensuring your business receives strategic guidance backed by deep industry knowledge.
           </p>
         </motion.div>
 

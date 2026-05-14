@@ -95,20 +95,19 @@ export default function AboutPage() {
             >
               <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 backdrop-blur-sm">
                 <Sparkles className="h-4 w-4 text-green-400" />
-                <span className="text-sm font-medium text-white/90">People-first IT transformation</span>
+                <span className="text-sm font-medium text-white/90">15+ Years of Enterprise Excellence</span>
               </div>
 
               <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
-                We Build Technology
+                Your Trusted Technology
                 <span className="block bg-gradient-to-r from-green-400 to-emerald-500 bg-clip-text text-transparent">
-                  Around Human Progress
+                  Partner for Growth
                 </span>
               </h1>
 
               <p className="mt-5 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
-                InnovaIT helps businesses modernize with confidence. We combine strategic thinking,
-                dependable delivery, and real partnership so your systems feel simpler, stronger,
-                and ready for what comes next.
+                With a commitment to reliability, security, and measurable business impact, we've helped 500+ organizations modernize their IT infrastructure. 
+                Our team of certified experts ensures your technology works harder so you can focus on growth.
               </p>
 
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">

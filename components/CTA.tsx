@@ -15,14 +15,14 @@ export default function CTA() {
             className="text-white"
           >
 <span className="inline-block bg-white/20 text-white text-xs font-semibold px-3 py-1 rounded-full mb-4">
-              Start Your Transformation Today
+              Join 500+ Trusted Enterprise Partners
             </span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
-              Ready to Modernize Your IT Infrastructure?
+              Secure Your Digital Future with Expert IT Partnership
             </h2>
             <p className="text-green-50 text-lg mb-8 leading-relaxed">
-              Get a free consultation and discover how we can help reduce costs, improve security, 
-              and scale your business with cutting-edge technology solutions.
+              Stop managing IT alone. Get enterprise-grade solutions with 24/7 expert support, proven security frameworks, and measurable ROI.
+              Our clients see an average 28% productivity increase and significant cost savings within 90 days.
             </p>
             <div className="flex items-center gap-4 flex-wrap">
               <motion.a

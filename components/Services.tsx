@@ -71,12 +71,12 @@ export default function Services() {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-10"
         >
-          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Our Services</span>
+          <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Comprehensive Services</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Solutions We Deliver
+            Industry-Leading IT Solutions Built for Your Success
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Comprehensive IT services designed to accelerate your business growth and operational efficiency
+            From cloud infrastructure to cybersecurity, our proven solutions reduce costs by 30% while improving operational resilience and security posture
           </p>
         </motion.div>
 

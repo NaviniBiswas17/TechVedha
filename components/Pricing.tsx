@@ -70,10 +70,10 @@ export default function Pricing() {
         >
           <span className="text-green-500 font-semibold text-sm uppercase tracking-wider">Pricing</span>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mt-2 md:mt-3">
-            Transparent Pricing Plans
+            Investment-Focused Pricing Built for Growth
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Choose the plan that fits your business. All plans include our core IT services with no hidden fees.
+            Flexible plans designed to deliver measurable ROI. Each includes 24/7 expert support, enterprise-grade security, and dedicated partnership to ensure your success
           </p>
         </motion.div>
 
