@@ -1,53 +1,20 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ArrowUpRight, TrendingUp, Clock, DollarSign, Shield } from 'lucide-react'
+import { ProjectMetricIcon } from '@/lib/siteData'
+import { useProjects } from '@/lib/useLocalAdminData'
 
-const caseStudies = [
-  {
-    client: 'Global Finance Corp',
-    industry: 'Finance',
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&q=80',
-    challenge: 'Legacy systems causing 12-hour downtime monthly',
-    solution: 'Cloud migration & infrastructure modernization',
-    results: [ 
-      { icon: TrendingUp, value: '99.99%', label: 'Uptime Achieved' },
-      { icon: Clock, value: '75%', label: 'Faster Processing' },
-      { icon: DollarSign, value: '$2M', label: 'Annual Savings' },
-    ],
-    quote: 'InnovaIT transformed our infrastructure. We went from constant outages to near-perfect reliability.',
-    author: 'Robert Chen, CTO',
-  },
-  {
-    client: 'HealthFirst Medical',
-    industry: 'Healthcare',
-    image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80',
-    challenge: 'HIPAA compliance gaps & data security concerns',
-    solution: 'Comprehensive cybersecurity overhaul',
-    results: [
-      { icon: Shield, value: '100%', label: 'Compliance Score' },
-      { icon: Clock, value: '60%', label: 'Faster Access' },
-      { icon: TrendingUp, value: 'Zero', label: 'Breaches' },
-    ],
-    quote: 'Their security expertise gave us complete confidence in protecting patient data.',
-    author: 'Dr. Sarah Williams, CEO',
-  },
-  {
-    client: 'RetailMax Chain',
-    industry: 'Retail',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80',
-    challenge: 'Disconnected systems across 200+ stores',
-    solution: 'Unified omnichannel platform',
-    results: [
-      { icon: TrendingUp, value: '40%', label: 'Revenue Increase' },
-      { icon: Clock, value: 'Real-time', label: 'Inventory Sync' },
-      { icon: DollarSign, value: '3x', label: 'ROI in Year 1' },
-    ],
-    quote: 'The unified platform revolutionized how we manage our retail operations.',
-    author: 'Michael Torres, COO',
-  },
-]
+const metricIconMap: Record<ProjectMetricIcon, typeof TrendingUp> = {
+  trending: TrendingUp,
+  clock: Clock,
+  dollar: DollarSign,
+  shield: Shield,
+}
 
 export default function CaseStudies() {
+  const { projects } = useProjects()
+  const caseStudies = projects.filter((project) => project.published)
+
   return (
     <section className="w-full bg-gray-50 py-10 md:py-14 lg:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,13 +78,16 @@ export default function CaseStudies() {
 
                     <div className="flex flex-col gap-3">
                       <div className="grid grid-cols-3 gap-2">
-                        {study.results.map((result) => (
+                        {study.results.map((result) => {
+                          const ResultIcon = metricIconMap[result.icon]
+                          return (
                           <div key={result.label} className="rounded-xl bg-gray-50 px-2 py-3 text-center">
-                            <result.icon className="mx-auto mb-1 h-4 w-4 text-green-500" />
+                            <ResultIcon className="mx-auto mb-1 h-4 w-4 text-green-500" />
                             <p className="text-base font-bold leading-tight text-gray-900">{result.value}</p>
                             <p className="mt-1 text-[11px] leading-tight text-gray-500">{result.label}</p>
                           </div>
-                        ))}
+                          )
+                        })}
                       </div>
 
                       <button className="flex w-full items-center justify-center gap-2 rounded-xl border border-green-100 bg-green-50 px-4 py-2.5 text-sm font-semibold text-green-600 transition-colors hover:border-green-200 hover:bg-green-100">
