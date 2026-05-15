@@ -1,5 +1,6 @@
 'use client'
-import { Shield, Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin } from 'lucide-react'
+import Image from 'next/image'
 
 const footerLinks = {
   Company: ['About Us', 'Careers', 'Blog', 'Press'],
@@ -15,11 +16,14 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-6 md:mb-8">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
-              <span className="font-bold text-white text-lg">InnovaIT</span>
+            <div className="relative mb-4 h-16 w-44">
+              <Image
+                src="/logo.png"
+                alt="InnovaIT logo"
+                fill
+                sizes="176px"
+                className="object-contain object-left"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed mb-6">
               Delivering reliable IT solutions that drive efficiency, security, and long-term growth for businesses worldwide.

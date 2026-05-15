@@ -1,9 +1,10 @@
 'use client'
 import { motion } from 'framer-motion'
-import { Shield, Menu, X } from 'lucide-react'
-import { useState, useEffect } from 'react'
+import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 
 const navLinks = [
   { name: 'Home', href: '/', type: 'page' },
@@ -47,19 +48,23 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-14 md:h-16">
+        <div className="grid h-20 grid-cols-[auto_1fr_auto] items-center gap-4 md:h-16 lg:grid-cols-[1fr_auto_1fr]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-9 h-9 bg-green-500 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-              <Shield className="w-5 h-5 text-white" />
+          <Link href="/" className="flex items-center gap-2 justify-self-start group">
+            <div className="relative h-20 w-44 rounded-lg transition-transform group-hover:scale-105 md:h-16 md:w-40">
+              <Image
+                src={scrolled ? '/logo2.png' : '/logo.png'}
+                alt="InnovaIT logo"
+                fill
+                sizes="(min-width: 768px) 160px, 176px"
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className={`font-bold text-lg transition-colors duration-300 ${
-              scrolled ? 'text-gray-900' : 'text-white'
-            }`}>InnovaIT</span>
           </Link>
 
           {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <ul className="hidden items-center justify-center gap-6 lg:flex xl:gap-8">
             {navLinks.map((link) => {
               const isActive = isLinkActive(link.href, link.type)
               return (
@@ -83,7 +88,7 @@ export default function Navbar() {
             })}
           </ul>
 
-          <div className="ml-auto flex items-center justify-end gap-2 sm:gap-3">
+          <div className="flex items-center justify-end gap-2 justify-self-end sm:gap-3">
             {/* CTA Button */}
             <Link href="/contact">
               <motion.span
