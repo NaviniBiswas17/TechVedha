@@ -1,6 +1,6 @@
+import SiteFooter from '@/components/SiteFooter'
 import type { Metadata } from 'next'
 import './globals.css'
-import SiteFooter from '@/components/SiteFooter'
 
 export const metadata: Metadata = {
   title: 'IT Solutions Landing Page',
@@ -14,6 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <meta name="apple-mobile-web-app-title" content="Coderaft" />
+      </head>
       <body>
         {children}
         <SiteFooter />
